@@ -21,10 +21,6 @@ for (let i = 0; i < obrasData.length; i++) {
     // permite "sumar" cada nueva obra al contenedor sin borrar las anteriores.
     grid.innerHTML += `
         <article class="obra-card">
-            <!-- ACCESO A PROPIEDADES DE OBJETOS (Clase 10) -->
-            <!-- Usamos 'Template Strings' (comillas invertidas) para interpolar variables (Clase 11). -->
-            <!-- Accedemos a los datos temáticos (img, nombre, anio) del objeto 
-                 que se encuentra en la posición [i] del array (Clase 09 y 10). -->
             <img src="${obrasData[i].img}" alt="${obrasData[i].nombre}" class="img-obra">
             <h4>${obrasData[i].nombre}</h4>
             <p>Año: ${obrasData[i].anio}</p>
