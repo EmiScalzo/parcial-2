@@ -9,10 +9,22 @@ const obrasData = [
 
 const grid = document.querySelector("#grid-obras");
 
-// Generar galería dinámicamente
+// GENERACIÓN DINÁMICA DE CONTENIDO EN GALERIA
+// Iniciamos una ESTRUCTURA REPETITIVA 'for' para recorrer el array.
+// La condición 'i < obrasData.length' asegura que el ciclo se repita 
+// tantas veces como elementos existan en la colección de obras.
 for (let i = 0; i < obrasData.length; i++) {
+    
+    // MANIPULACIÓN DEL DOM Y ESTRUCTURA HTML
+    // Utilizamos la propiedad .innerHTML para inyectar etiquetas directamente.
+    // El operador de asignación combinado '+=' es fundamental aquí: 
+    // permite "sumar" cada nueva obra al contenedor sin borrar las anteriores.
     grid.innerHTML += `
         <article class="obra-card">
+            <!-- ACCESO A PROPIEDADES DE OBJETOS (Clase 10) -->
+            <!-- Usamos 'Template Strings' (comillas invertidas) para interpolar variables (Clase 11). -->
+            <!-- Accedemos a los datos temáticos (img, nombre, anio) del objeto 
+                 que se encuentra en la posición [i] del array (Clase 09 y 10). -->
             <img src="${obrasData[i].img}" alt="${obrasData[i].nombre}" class="img-obra">
             <h4>${obrasData[i].nombre}</h4>
             <p>Año: ${obrasData[i].anio}</p>
