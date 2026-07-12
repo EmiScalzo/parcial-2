@@ -1,0 +1,80 @@
+/* CONFIGURACIÓN GLOBAL Y BOX MODEL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../img/fondo.png');
+    background-size: repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif; /* Tipografía común para cuerpo */
+    display: flex; /* Centrado del contenedor con Flexbox */
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+#contenedor {
+    width: 95%;
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.93);
+    padding: 2.5rem;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+/* TIPOGRAFÍA (Solo títulos) */
+h1, h2, h3, .destacado, nav a {
+    font-family: 'Abel', sans-serif;
+    text-transform: uppercase;
+    color: #111;
+}
+
+/* NAVEGACIÓN HORIZONTAL */
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    background-color: #222;
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+nav a:link { color: #fff; text-decoration: none; }
+nav a:visited { color: #ccc; }
+nav a:hover { color: #00e1ff; text-decoration: underline; }
+nav a:active { color: #ff0055; }
+
+/* LAYOUTS REQUERIDOS */
+/* Página 1: 3 columnas mismo ancho */
+.layout-inicio {
+    display: flex;
+    gap: 1.5rem;
+}
+.col-3 { flex: 1; border-right: 1px solid #ddd; padding-right: 0.5rem; }
+.col-3:last-child { border: none; }
+
+/* Página 2: 2 columnas ancho diferente */
+.layout-galeria {
+    display: flex;
+    gap: 2.5rem;
+}
+.col-principal { flex: 2; }
+.col-lateral { flex: 1; background: #f9f9f9; padding: 1rem; }
+
+/* ELEMENTOS JS */
+.galeria-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.obra-card { flex: 1 1 200px; border: 1px solid #ccc; padding: 1rem; text-align: center; background: #fff; }
+.img-obra { max-width: 100%; height: auto; margin-bottom: 0.5rem; }
+
+/* Cambio de diseño para la galería */
+.diseno-alternativo .obra-card { background-color: #333; color: #fff; border-color: #00e1ff; }
+
+/* Formularios */
+form { display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0; }
+input { padding: 0.6rem; }
+button { padding: 0.8rem; background: #222; color: #fff; border: none; cursor: pointer; font-family: 'Abel', sans-serif; }
+button:disabled { background: #999; cursor: not-allowed; }
+
+.img-fluida { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+footer { text-align: center; border-top: 1px solid #444; margin-top: 2rem; padding-top: 1rem; font-size: 0.9rem; }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laurie Anderson - Gestión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div id="contenedor">
+        <header>
+            <h1>Sistema de Gestión de Repositorio</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="gestion.html">Gestión</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- DATO CURIOSO AL AZAR -->
+            <section style="text-align: center; border: 1px dashed #444; padding: 1rem; margin-bottom: 2rem;">
+                <h3>Dato Curioso</h3>
+                <p id="p-dato">Haz clic para descubrir un secreto...</p>
+                <button id="btn-dato">Obtener dato al azar</button>
+            </section>
+
+            <!-- EJERCICIO JS -->
+            <section id="sec-config">
+                <h2>1. Configuración Inicial</h2>
+                <form id="f-inicial">
+                    <label>Cantidad de obras:</label>
+                    <input type="number" id="inp-cant" min="1" required>
+                    <label>Tiempo transferencia (ms/MB):</label>
+                    <input type="number" id="inp-trans" min="0" required>
+                    <label>Costo mensual almacenamiento ($/MB):</label>
+                    <input type="number" id="inp-costo" min="0" required>
+                    <button type="button" id="btn-iniciar">Iniciar Proceso</button>
+                </form>
+            </section>
+
+            <section id="sec-carga" style="display: none;">
+                <h2>2. Carga de Obras (<span id="cont">0</span>/<span id="total">0</span>)</h2>
+                <form id="f-obra">
+                    <input type="text" id="o-nombre" placeholder="Nombre de la obra" required>
+                    <input type="number" id="o-dur" placeholder="Duración (minutos)" min="0.1" step="0.1" required>
+                    <input type="number" id="o-peso" placeholder="Peso (MB)" min="0.1" step="0.1" required>
+                    <button type="button" id="btn-guardar">Guardar Obra</button>
+                </form>
+            </section>
+
+            <section id="sec-res" style="display: none;">
+                <h2>3. Análisis del Repositorio</h2>
+                <button type="button" id="btn-calc">Calcular Resultados</button>
+                <div id="pantalla" style="margin-top: 1rem; line-height: 1.8;"></div>
+                <button type="button" id="btn-reset" style="display: none; margin-top: 1rem;">Reiniciar Sistema</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>2026 - Informática General I - UNA - Cátedra Drelichman</p>
+        </footer>
+    </div>
+    <script src="js/gestion.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laurie Anderson - Galería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div id="contenedor">
+        <header>
+            <h1>Obras Destacadas</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="gestion.html">Gestión</a></li>
+            </ul>
+        </nav>
+
+        <main class="layout-galeria"> <!-- 2 columnas ancho diferente -->
+            <section class="col-principal">
+                <h2>Exposición Digital</h2>
+                <button id="btn-estilo">Cambiar diseño de galería</button>
+                <div id="grid-obras" class="galeria-grid">
+                    <!-- Se coloca con JS -->
+                </div>
+            </section>
+
+            <aside class="col-lateral">
+                <h3>Tecnología</h3>
+                <p>Anderson utiliza interfaces personalizadas para controlar el sonido y la imagen en tiempo real.</p>
+                <img src="img/anderson-3.jpg" alt="Laurie con instrumentos electrónicos" class="img-fluida">
+            </aside>
+        </main>
+
+        <footer>
+            <address>Escribir a: <a href="mailto:laurie@artedigital.com">laurie@artedigital.com</a></address>
+        </footer>
+    </div>
+    <script src="js/galeria.js"></script>
+</body>
+</html>
