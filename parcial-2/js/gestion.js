@@ -1,18 +1,38 @@
 let repo = []; 
 let maxObras = 0, tasaTrans = 0, tasaCosto = 0;
 
-// CONFIGURACIÓN INICIAL
+// CONFIGURACIÓN INICIAL DEL SISTEMA
+// Capturamos el botón de inicio por su ID y le asignamos un "escuchador" de eventos
 document.querySelector("#btn-iniciar").addEventListener("click", function() {
+    
+    // CAPTURA Y CONVERSIÓN DE DATOS
+    // Accedemos al contenido de los inputs usando .value y los convertimos de String a Number
     const c = Number(document.querySelector("#inp-cant").value);
     const t = Number(document.querySelector("#inp-trans").value);
     const m = Number(document.querySelector("#inp-costo").value);
 
+    // VALIDACIÓN DE DATOS 
+    // Verificamos mediante un condicional if que los valores sean lógicos (cant > 0)
     if (c > 0 && t >= 0 && m >= 0) {
-        maxObras = c; tasaTrans = t; tasaCosto = m;
+        
+        // ASIGNACIÓN A VARIABLES GLOBALES
+        // Guardamos los datos validados para que estén disponibles en todo el programa
+        maxObras = c; 
+        tasaTrans = t; 
+        tasaCosto = m;
+
+        // SALIDA DE DATOS AL DOM 
+        // Mostramos la cantidad total esperada en la interfaz usando innerText
         document.querySelector("#total").innerText = maxObras;
+
+        // GESTIÓN DE VISIBILIDAD Y FLUJO (Control de ejecución solicitado)
+        // Ocultamos la sección de configuración y habilitamos la de carga modificando el CSS
         document.querySelector("#sec-config").style.display = "none";
         document.querySelector("#sec-carga").style.display = "block";
+
     } else {
+        // MENSAJE DE ERROR
+        // Si los datos no pasan la validación, avisamos al usuario mediante una alerta
         alert("Valores inválidos. La cantidad debe ser mayor a 0.");
     }
 });
@@ -58,7 +78,9 @@ document.querySelector("#btn-calc").addEventListener("click", function() {
     const tDescarga = masLarga.peso * tasaTrans;
     const presupuestoAnual = pesoTotal * tasaCosto * 12; // x12 por ser un año completo
 
-    // Inyección de resultados en el DOM
+    // Utilizamos la propiedad .innerHTML para insertar una estructura HTML completa 
+    // dentro del contenedor de resultados. Usamos "Template Strings" (comillas invertidas)
+    // para incrustar las variables calculadas de forma legible.
     document.querySelector("#pantalla").innerHTML = `
         <article style="border: 1px solid #111; padding: 1rem; background: #eee;">
             <p><strong>1. Duración:</strong> Total ${durTotal.toFixed(2)} min. / Promedio ${(durTotal/repo.length).toFixed(2)} min.</p>
@@ -67,8 +89,17 @@ document.querySelector("#btn-calc").addEventListener("click", function() {
         </article>
     `;
 
+    // CONTROL DE FLUJO Y VISIBILIDAD 
+    // Ocultamos la sección de carga para limpiar la interfaz al mostrar los resultados
+    // modificando la propiedad style.display 
     document.querySelector("#sec-carga").style.display = "none";
+
+    // Deshabilitamos el botón de calcular para evitar que el usuario repita el proceso 
+    // innecesariamente, usando el atributo .disabled
     document.querySelector("#btn-calc").disabled = true;
+
+    // Habilitamos el botón de reinicio para permitir que el sistema vuelva a empezar,
+    // cambiando su estado visual a 'block' para que aparezca en pantalla
     document.querySelector("#btn-reset").style.display = "block";
 });
 
